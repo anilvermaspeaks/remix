@@ -2,8 +2,6 @@ import { Outlet } from "@remix-run/react";
 
 import ExpensesList from "~/components/expenses/ExpensesList";
 
-import sharedStyles from '~/styles/expenses.css';
-
 const dummyData = [{
     id:"12",
     title:'new 1',
@@ -21,8 +19,3 @@ export default function Expenseslayout(){
     </>
 
 }
-
-
-export function links(){
-    return [{rel:'stylesheet', href: sharedStyles}]
-  }
