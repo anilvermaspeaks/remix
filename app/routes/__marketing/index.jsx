@@ -16,7 +16,7 @@ export default function Index() {
           <div className="marketing-explanation">
             <p>Manage your expenses in one central place.</p>
             <p>
-              <Link className="cta" to="/expenses">
+              <Link className="cta" to="/expences">
                 <span>Get Started</span>
                 <FaArrowRight />
               </Link>

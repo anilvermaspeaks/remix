@@ -13,9 +13,7 @@ function MainHeader() {
           <li>
             <NavLink to="/pricing">Pricing</NavLink>
           </li>
-          <li>
-            <NavLink to="/expences">Expences</NavLink>
-          </li>
+          
         </ul>
       </nav>
       <nav id="cta-nav">

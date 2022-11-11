@@ -1,6 +1,13 @@
-export default function RawExpencesPage() {
-    return (
-      <h1>Raw Expences Page</h1>
-    );
-  }
-  
+
+const dummyData = [{
+  id:"12",
+  title:'new 1',
+  amount:1,
+  date:'11'
+}]
+
+export function loader() {
+
+return dummyData;
+
+}
