@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { FaDownload, FaPlus } from "react-icons/fa";
 
@@ -14,11 +15,20 @@ export default function Expenseslayout(){
             <a href="/expences/raw" target="_blank"><FaDownload/><span>Load Raw Data</span></a>
         </section>
         {expenseData &&<ExpensesList expenses={expenseData}/>}
+        {!expenseData && <p>No Expense</p>}
     </main>
     </>
 
 }
 
 export async  function loader() {
-  return  getExpenses()
+  const expenses = await  getExpenses();
+//   if(!expenses || expenses.length ===0){
+//     throw json({message:'Could not find any expenses.'},{status:404, statusText:'No expenses found!'})
+//   }
+  return expenses;
+}
+
+export function CatchBoundary(){
+    return <p>Error</p>
 }

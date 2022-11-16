@@ -8,6 +8,9 @@ function ExpenseForm() {
    const navigation = useNavigation();
    const expenseDataArr = matches.find(match => match.id === 'routes/__app/expences').data ;
     const expenseData = expenseDataArr.find(exppense => exppense.id ===params.id)
+    if(params.id && !expenseData){
+      return <p>Invalid Expense Id</p>
+    }
    const defaultValues = expenseData ? {
     title: expenseData?.title,
     date: expenseData?.date,

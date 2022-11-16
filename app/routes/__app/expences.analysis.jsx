@@ -1,19 +1,27 @@
 import ExpenseStatistics from "~/components/expenses/ExpenseStatistics";
 
 import Chart from "~/components/expenses/Chart";
+import { getExpenses } from "~/data/expenses.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 
-const dummyData = [{
-  id:1,
-  title:'new 1',
-  amount:1,
-  date:'11'
-}]
 export default function ExpencesAnalysisPage() {
+ const expenses = useLoaderData();
     return (
      <main>
-      <Chart expenses={dummyData}/>
-      <ExpenseStatistics expenses={dummyData} />
+      <Chart expenses={expenses}/>
+      <ExpenseStatistics expenses={expenses} />
      </main>
     );
   }
   
+
+  export async function loader(){
+   const expenses = getExpenses();
+    if(!expenses || expenses.length ===0){
+    throw json({meessage:'Cound not load expenses'},{status:404, statusText:'Cound not load expenses'})
+    }
+
+
+    return expenses;
+  }
