@@ -21,7 +21,7 @@ export const meta = () => ({
 function Document({title, children}){
   return (<html lang="en">
   <head>
-  <title>{title}</title>
+  {title && <title>{title}</title>}
     <Meta />
     <Links />
   </head>

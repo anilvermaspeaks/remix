@@ -40,3 +40,11 @@ else if(request.method ==='DELETE'){
    return redirect('/expences')
 }
 }
+
+export function meta({params, location, data, parentsdata}) {
+  //set data based on dynamic data based on these keys 
+  return {
+    title: 'hard coded title',
+    description:'manage your expences'
+  }
+}

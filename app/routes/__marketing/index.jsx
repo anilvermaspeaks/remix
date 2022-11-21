@@ -43,4 +43,9 @@ export default function Index() {
   );
 }
 
-export function meta() {}
+export function meta() {
+  return {
+    title:'Marketing page',
+    description:'manage your expences'
+  }
+}
