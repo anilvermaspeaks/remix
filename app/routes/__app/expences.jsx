@@ -3,6 +3,7 @@ import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { FaDownload, FaPlus } from "react-icons/fa";
 
 import ExpensesList from "~/components/expenses/ExpensesList";
+import { requireUserSession } from "~/data/auth.server";
 import { getExpenses } from "~/data/expenses.server";
 
 export default function Expenseslayout(){
@@ -21,7 +22,10 @@ export default function Expenseslayout(){
 
 }
 
-export async  function loader() {
+
+
+export async  function loader({request}) {
+  await requireUserSession(request);
   const expenses = await  getExpenses();
 //   if(!expenses || expenses.length ===0){
 //     throw json({message:'Could not find any expenses.'},{status:404, statusText:'No expenses found!'})
