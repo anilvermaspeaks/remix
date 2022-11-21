@@ -49,3 +49,9 @@ export function meta() {
     description:'manage your expences'
   }
 }
+
+export function headers() {
+  return {
+    'Cache-control':'max-age=3600'
+  }
+}
